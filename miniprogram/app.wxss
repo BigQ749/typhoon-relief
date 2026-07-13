@@ -1,0 +1,212 @@
+/* ========================================
+   台风救援 - Design System v2.0
+   Dark Storm Theme · Emergency-Grade Readability
+   ======================================== */
+
+/* Design Tokens */
+page {
+  /* Brand */
+  --c-primary: #1e3a5f;
+  --c-primary-light: #2d5a87;
+  --c-accent: #2563eb;
+  
+  /* Emergency */
+  --c-danger: #dc2626;
+  --c-danger-light: #fef2f2;
+  --c-warning: #f97316;
+  --c-warning-light: #fff7ed;
+  --c-safe: #059669;
+  --c-safe-light: #ecfdf5;
+  
+  /* Neutral */
+  --c-bg: #f0f4f8;
+  --c-card: #ffffff;
+  --c-glass: rgba(255, 255, 255, 0.78);
+  --c-glass-border: rgba(255, 255, 255, 0.3);
+  --c-overlay: rgba(15, 23, 42, 0.6);
+
+  /* Text */
+  --c-text-primary: #0f172a;
+  --c-text-secondary: #475569;
+  --c-text-tertiary: #94a3b8;
+  --c-text-inverse: #ffffff;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-glow-danger: 0 0 20px rgba(220, 38, 38, 0.3);
+  
+  /* Radius */
+  --r-sm: 8rpx;
+  --r-md: 16rpx;
+  --r-lg: 24rpx;
+  --r-xl: 32rpx;
+  --r-full: 50%;
+
+  /* Spacing */
+  --space-xs: 8rpx;
+  --space-sm: 12rpx;
+  --space-md: 16rpx;
+  --space-lg: 24rpx;
+  --space-xl: 32rpx;
+}
+
+/* Base */
+page {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
+  font-size: 14px;
+  color: var(--c-text-primary);
+  background-color: var(--c-bg);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Card Styles === */
+.glass-card {
+  background: var(--c-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--c-glass-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.solid-card {
+  background: var(--c-card);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* === Tag Styles === */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.tag-pending {
+  background: var(--c-danger-light);
+  color: var(--c-danger);
+  border: 1px solid rgba(220, 38, 38, 0.15);
+}
+
+.tag-rescuing {
+  background: var(--c-warning-light);
+  color: var(--c-warning);
+  border: 1px solid rgba(249, 115, 22, 0.15);
+}
+
+.tag-resolved {
+  background: var(--c-safe-light);
+  color: var(--c-safe);
+  border: 1px solid rgba(5, 150, 105, 0.15);
+}
+
+/* === Button Styles === */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: var(--r-md);
+  border: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--c-accent), #1d4ed8);
+  color: var(--c-text-inverse);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--c-danger), #b91c1c);
+  color: var(--c-text-inverse);
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--c-accent);
+  color: var(--c-accent);
+}
+
+/* === Typography Helpers === */
+.text-title { font-size: 20px; font-weight: 700; color: var(--c-text-primary); letter-spacing: 0; }
+.text-subtitle { font-size: 15px; font-weight: 600; color: var(--c-text-primary); }
+.text-body { font-size: 14px; font-weight: 400; color: var(--c-text-secondary); line-height: 1.6; }
+.text-caption { font-size: 12px; font-weight: 400; color: var(--c-text-tertiary); }
+.text-emergency { color: var(--c-danger); font-weight: 700; }
+.text-safe { color: var(--c-safe); font-weight: 600; }
+
+/* === Skeleton Loading === */
+.skeleton {
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--r-sm);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* === Safe Area === */
+.safe-bottom {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 8px);
+}
+
+/* === SOS Pulse Animation === */
+@keyframes sos-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.6); }
+  100% { box-shadow: 0 0 0 20px rgba(220, 38, 38, 0); }
+}
+
+.sos-pulse {
+  animation: sos-pulse 2s infinite;
+}
+
+/* === Status Badge === */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.status-dot.pending { background: var(--c-danger); }
+.status-dot.rescuing { background: var(--c-warning); }
+.status-dot.resolved { background: var(--c-safe); }
+
+/* === Section Title === */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+}
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-text-primary);
+  letter-spacing: 0;
+}
+.section-more {
+  font-size: 13px;
+  color: var(--c-text-tertiary);
+}

@@ -1,0 +1,28 @@
+<scroll-view class="page-container" scroll-y>
+  <view wx:if="{{article}}">
+    <view class="detail-hero" style="border-top-color: {{article.accent}}">
+      <view class="detail-head">
+        <text class="detail-tag">{{article.tag}}</text>
+        <text class="detail-level">{{article.level}}</text>
+      </view>
+      <text class="detail-title">{{article.title}}</text>
+      <text class="detail-summary">{{article.summary}}</text>
+      <view class="meta-bar">
+        <text>{{article.source}}</text>
+        <text>{{article.readTime}}</text>
+      </view>
+    </view>
+
+    <view class="content-body">
+      <rich-text nodes="{{article.content}}"></rich-text>
+    </view>
+
+    <view class="source-footer">
+      <text>提示：遇到现实危险时，请优先拨打 110、119、120 或当地应急救援电话。</text>
+    </view>
+  </view>
+
+  <view class="empty-view" wx:if="{{!article}}">
+    <text class="empty-text">文章不存在</text>
+  </view>
+</scroll-view>

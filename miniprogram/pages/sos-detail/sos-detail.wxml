@@ -1,0 +1,80 @@
+<scroll-view class="page-container" scroll-y>
+  <view class="signal-content" wx:if="{{signal}}">
+    <view class="photo-section" wx:if="{{signal.photos && signal.photos.length > 0}}">
+      <swiper class="photo-swiper" indicator-dots circular>
+        <swiper-item wx:for="{{signal.photos}}" wx:key="index">
+          <view class="photo-wrap">
+            <image
+              class="swiper-photo"
+              src="{{previewPhotos[index] || item}}"
+              mode="aspectFill"
+              data-index="{{index}}"
+              bindtap="previewPhoto"
+            ></image>
+            <view class="photo-actions">
+              <button class="photo-action" data-index="{{index}}" bindtap="previewPhoto">预览大图</button>
+              <button class="photo-action save" data-index="{{index}}" bindtap="saveCurrentPhoto">保存图片</button>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+
+    <view class="detail-section emergency">
+      <view class="status-row">
+        <text class="tag tag-pending" wx:if="{{signal.status === 'pending'}}">{{signal.statusText}}</text>
+        <text class="tag tag-rescuing" wx:elif="{{signal.status === 'rescuing'}}">{{signal.statusText}}</text>
+        <text class="tag tag-resolved" wx:else>{{signal.statusText}}</text>
+        <text class="detail-time">{{signal.timeText}}</text>
+      </view>
+
+      <view class="needs-row">
+        <text class="need-badge" wx:for="{{signal.displayNeeds}}" wx:key="index">{{item}}</text>
+      </view>
+      <text class="needs-desc" wx:if="{{signal.needs_desc}}">{{signal.needs_desc}}</text>
+      <text class="needs-desc muted" wx:else>发布者未填写详细描述</text>
+    </view>
+
+    <view class="detail-section">
+      <view class="section-label">发布者信息</view>
+      <view class="info-row">
+        <text class="info-key">用户标识</text>
+        <text class="info-val">{{signal.publisherText}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-key">联系电话</text>
+        <text class="info-val phone">{{signal.contactText}}</text>
+      </view>
+      <button class="contact-btn" bindtap="callContact" disabled="{{!signal.contact_phone}}">拨打联系电话</button>
+    </view>
+
+    <view class="detail-section">
+      <view class="section-label">位置信息</view>
+      <text class="address-text">{{signal.address || '位置未知'}}</text>
+      <map
+        class="mini-map"
+        longitude="{{signal.location ? signal.location.lng : 121.4737}}"
+        latitude="{{signal.location ? signal.location.lat : 31.2304}}"
+        scale="15"
+        markers="{{markers}}"
+        enable-zoom
+        enable-scroll
+      ></map>
+    </view>
+
+    <view class="detail-section" wx:if="{{signal.distance}}">
+      <view class="section-label">距当前位置</view>
+      <text class="distance-value">{{signal.distance}} km</text>
+    </view>
+
+    <view class="action-area">
+      <button class="action-btn nav-btn" bindtap="navigateTo">导航前往</button>
+      <button class="action-btn take-btn" wx:if="{{signal.status === 'pending'}}" bindtap="takeRescue">我来救援</button>
+      <button class="action-btn resolve-btn" wx:if="{{signal.status === 'rescuing' || signal.status === 'pending'}}" bindtap="resolveRescue">标记已解决</button>
+    </view>
+  </view>
+
+  <view class="empty-view" wx:if="{{!signal}}">
+    <text class="empty-text">未找到求救信息，请从附近求救信号列表重新进入</text>
+  </view>
+</scroll-view>

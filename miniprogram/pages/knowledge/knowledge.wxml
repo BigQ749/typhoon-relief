@@ -1,0 +1,77 @@
+<view class="page-container">
+  <view class="guide-hero">
+    <view class="hero-copy">
+      <text class="hero-kicker">台风避险手册</text>
+      <text class="hero-title">关键时刻照着做</text>
+      <text class="hero-desc">把官方防灾建议整理成可执行清单，适合家庭、社区和救援互助场景。</text>
+    </view>
+  </view>
+
+  <scroll-view class="tip-scroll" scroll-x>
+    <view class="tip-chip" wx:for="{{quickTips}}" wx:key="index">{{item}}</view>
+  </scroll-view>
+
+  <view class="tab-bar">
+    <view
+      class="tab-item {{currentTab === index ? 'active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="key"
+      data-index="{{index}}"
+      data-category="{{item.key}}"
+      bindtap="switchTab"
+    >
+      <text class="tab-label">{{item.label}}</text>
+    </view>
+  </view>
+
+  <scroll-view class="article-scroll" scroll-y>
+    <view
+      class="article-card featured"
+      wx:if="{{heroArticle}}"
+      data-id="{{heroArticle.id}}"
+      bindtap="goToDetail"
+    >
+      <view class="card-accent" style="background: {{heroArticle.accent}}"></view>
+      <view class="card-body">
+        <view class="card-head">
+          <text class="card-tag">{{heroArticle.tag}}</text>
+          <text class="card-level">{{heroArticle.level}}</text>
+        </view>
+        <text class="card-title">{{heroArticle.title}}</text>
+        <text class="card-summary">{{heroArticle.summary}}</text>
+        <view class="card-meta">
+          <text>{{heroArticle.source}}</text>
+          <text>{{heroArticle.readTime}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="section-title">更多指南</view>
+
+    <view
+      class="article-card"
+      wx:for="{{secondaryArticles}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="goToDetail"
+    >
+      <view class="card-accent" style="background: {{item.accent}}"></view>
+      <view class="card-body">
+        <view class="card-head">
+          <text class="card-tag">{{item.tag}}</text>
+          <text class="card-level">{{item.level}}</text>
+        </view>
+        <text class="card-title">{{item.title}}</text>
+        <text class="card-summary">{{item.summary}}</text>
+        <view class="card-meta">
+          <text>{{item.source}}</text>
+          <text>{{item.readTime}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="source-note">
+      <text>内容参考应急管理部、中国天气网、国家应急广播、人民日报等公开防灾资料整理。</text>
+    </view>
+  </scroll-view>
+</view>

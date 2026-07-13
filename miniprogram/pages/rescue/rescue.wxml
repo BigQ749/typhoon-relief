@@ -1,0 +1,92 @@
+<view class="page-container">
+  <view class="loading-screen" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">搜索附近求救信号...</text>
+  </view>
+
+  <map
+    id="rescueMap"
+    wx:if="{{!loading}}"
+    longitude="{{centerLng}}"
+    latitude="{{centerLat}}"
+    scale="{{mapScale}}"
+    markers="{{markers}}"
+    class="map-view"
+    show-location
+    enable-zoom
+    enable-scroll
+    bindmarkertap="onMarkerTap"
+  ></map>
+
+  <view class="location-pill" wx:if="{{!loading}}">
+    <text>{{locationText}}</text>
+  </view>
+
+  <view class="locate-btn" wx:if="{{!loading}}" bindtap="recenter">
+    <text>{{locating ? '定位中' : '定位'}}</text>
+  </view>
+
+  <scroll-view class="filter-bar" scroll-x wx:if="{{!loading}}">
+    <view
+      class="filter-chip {{filterType === item.code ? 'active' : ''}}"
+      wx:for="{{filters}}"
+      wx:key="code"
+      bindtap="setFilter"
+      data-type="{{item.code}}"
+    >{{item.label}}</view>
+  </scroll-view>
+
+  <view class="bottom-panel glass-card" wx:if="{{!loading}}">
+    <view class="panel-header" bindtap="togglePanel">
+      <view class="panel-header-left">
+        <text class="panel-badge">{{filteredSignals.length}}</text>
+        <text class="panel-title">附近求救信号</text>
+      </view>
+      <text class="panel-arrow">{{panelExpanded ? '收起' : '展开'}}</text>
+    </view>
+
+    <scroll-view class="signal-list" scroll-y wx:if="{{panelExpanded}}">
+      <view class="list-empty" wx:if="{{filteredSignals.length === 0}}">
+        <text class="list-empty-icon">SOS</text>
+        <text class="list-empty-text">{{errorText || '附近暂无求救信号'}}</text>
+      </view>
+
+      <view
+        class="signal-card {{item.status === 'pending' ? 'urgent' : ''}}"
+        wx:for="{{filteredSignals}}"
+        wx:key="_id"
+        data-id="{{item._id}}"
+        bindtap="goToDetail"
+      >
+        <image class="card-photo" src="{{item.photos[0]}}" mode="aspectFill" wx:if="{{item.photos && item.photos[0]}}"></image>
+        <view class="card-photo-placeholder" wx:else>现场</view>
+
+        <view class="card-info">
+          <view class="card-top">
+            <view class="card-tags">
+              <text class="tag tag-pending" wx:if="{{item.status === 'pending'}}">{{item.statusText}}</text>
+              <text class="tag tag-rescuing" wx:elif="{{item.status === 'rescuing'}}">{{item.statusText}}</text>
+              <text class="tag tag-resolved" wx:else>{{item.statusText}}</text>
+              <text class="need-chip" wx:for="{{item.displayNeeds}}" wx:key="index">{{item}}</text>
+            </view>
+          </view>
+          <text class="card-desc" wx:if="{{item.needs_desc}}">{{item.needs_desc}}</text>
+          <text class="card-desc" wx:else>{{item.needsText}}</text>
+          <view class="card-bottom">
+            <view class="card-distance">
+              <text class="dist-value">{{item.distance}} km</text>
+            </view>
+            <text class="card-time">{{item.timeText}}</text>
+          </view>
+          <view class="detail-entry" data-id="{{item._id}}" catchtap="goToDetail">查看详情</view>
+        </view>
+
+        <view class="card-sos-ring" wx:if="{{item.status === 'pending'}}"></view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="sos-fab sos-pulse" bindtap="goToPublish">
+    <text class="sos-fab-icon">SOS</text>
+  </view>
+</view>

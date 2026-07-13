@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/rescue/rescue",
+    "pages/knowledge/knowledge",
+    "pages/knowledge-detail/knowledge-detail",
+    "pages/sos-publish/sos-publish",
+    "pages/sos-detail/sos-detail",
+    "pages/mine/mine"
+  ],
+  "tabBar": {
+    "color": "#64748b",
+    "selectedColor": "#1e3a5f",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/rescue/rescue",
+        "text": "救援互助",
+        "iconPath": "images/rescue.png",
+        "selectedIconPath": "images/rescue-active.png"
+      },
+      {
+        "pagePath": "pages/knowledge/knowledge",
+        "text": "防灾科普",
+        "iconPath": "images/knowledge.png",
+        "selectedIconPath": "images/knowledge-active.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#1e3a5f",
+    "navigationBarTitleText": "台风救援互助",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f0f4f8"
+  },
+  "requiredPrivateInfos": ["getLocation", "chooseLocation"],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于展示附近求救信号和辅助导航"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

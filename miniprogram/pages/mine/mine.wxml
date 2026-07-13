@@ -1,0 +1,50 @@
+<view class="page-container">
+  <view class="profile-header">
+    <view class="avatar-wrapper" bindtap="login">
+      <image class="avatar" src="{{avatarUrl}}" mode="aspectFill" wx:if="{{avatarUrl}}"></image>
+      <view class="avatar-placeholder" wx:else>
+        <text class="avatar-icon">我</text>
+      </view>
+    </view>
+    <text class="profile-name" wx:if="{{nickName}}">{{nickName}}</text>
+    <text class="profile-name placeholder" wx:else bindtap="login">点击登录</text>
+    <text class="profile-hint" wx:if="{{!loggedIn}}">登录后可发布和响应求救</text>
+  </view>
+
+  <view class="stats-grid">
+    <view class="stat-card">
+      <text class="stat-value">{{mySOSCount}}</text>
+      <text class="stat-label">我的求救</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-value">{{myRescueCount}}</text>
+      <text class="stat-label">参与救援</text>
+    </view>
+  </view>
+
+  <view class="menu-section solid-card">
+    <view class="menu-item" bindtap="showComingSoon">
+      <text class="menu-icon">SOS</text>
+      <text class="menu-label">我发布的求救</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="showComingSoon">
+      <text class="menu-icon">救</text>
+      <text class="menu-label">我响应的救援</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="menu-section solid-card">
+    <view class="menu-item">
+      <text class="menu-icon">离线</text>
+      <text class="menu-label">离线信息包</text>
+      <switch class="menu-switch" checked="{{offlineMode}}" bindchange="toggleOffline" color="#2563eb"></switch>
+    </view>
+    <view class="menu-item" bindtap="showComingSoon">
+      <text class="menu-icon">关于</text>
+      <text class="menu-label">关于台风救援</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+</view>

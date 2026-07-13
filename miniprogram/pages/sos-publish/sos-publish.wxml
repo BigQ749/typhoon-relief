@@ -1,0 +1,80 @@
+<view class="page-container">
+  <view class="form-section">
+    <view class="section-header">
+      <text class="section-title">当前位置</text>
+    </view>
+    <view class="location-card" bindtap="chooseLocation">
+      <text class="location-text" wx:if="{{address}}">{{address}}</text>
+      <text class="location-text placeholder" wx:else>点击选择求救地点</text>
+      <text class="location-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <view class="section-header">
+      <text class="section-title">现场照片</text>
+      <text class="section-desc">{{photos.length}}/4，至少 1 张</text>
+    </view>
+    <view class="photo-grid">
+      <view class="photo-item" wx:for="{{photos}}" wx:key="index">
+        <image class="photo" src="{{item}}" mode="aspectFill"></image>
+        <view class="photo-remove" data-index="{{index}}" bindtap="removePhoto">×</view>
+      </view>
+      <view class="photo-add" wx:if="{{photos.length < 4}}" bindtap="addPhoto">
+        <text class="add-icon">+</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <view class="section-header">
+      <text class="section-title">需要什么帮助</text>
+      <text class="section-desc">可多选</text>
+    </view>
+    <view class="need-grid">
+      <view
+        class="need-item {{item.active ? 'active' : ''}}"
+        wx:for="{{needs}}"
+        wx:key="code"
+        bindtap="toggleNeed"
+        data-need="{{item.code}}"
+      >{{item.label}}</view>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <view class="section-header">
+      <text class="section-title">详细描述</text>
+      <text class="section-desc">{{desc.length}}/200</text>
+    </view>
+    <textarea
+      class="desc-textarea"
+      placeholder="描述具体情况，例如：家中老人被困二楼，需要饮用水和撤离协助。"
+      maxlength="200"
+      value="{{desc}}"
+      bindinput="onDescInput"
+    ></textarea>
+  </view>
+
+  <view class="form-section">
+    <view class="section-header">
+      <text class="section-title">联系电话</text>
+      <text class="section-desc">必填，方便救援人员联系</text>
+    </view>
+    <input
+      class="phone-input"
+      type="number"
+      placeholder="输入手机号码"
+      value="{{phone}}"
+      maxlength="11"
+      bindinput="onPhoneInput"
+    />
+  </view>
+
+  <view class="submit-section">
+    <button class="submit-btn" disabled="{{!canSubmit}}" loading="{{submitting}}" bindtap="submitSOS">
+      发布求救信号
+    </button>
+    <text class="submit-tip" wx:if="{{!canSubmit}}">请补全位置、至少 1 张照片、求救类型和联系电话</text>
+  </view>
+</view>

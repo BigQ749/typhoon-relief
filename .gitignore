@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+cloudfunctions/**/node_modules/
+
+# WeChat DevTools local/private files
+project.private.config.json
+.idea/
+.vscode/
+
+# Runtime and logs
+*.log
+logs/
+tmp/
+temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local cloud/deployment artifacts
+cloudbaserc.json
+.env
+.env.*
+
+# Generated packages
+*.zip
+*.tar
+*.tgz

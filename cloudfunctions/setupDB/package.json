@@ -1,0 +1,9 @@
+{
+  "name": "setupDB",
+  "version": "1.0.0",
+  "description": "初始化数据库集合和索引（仅需运行一次）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

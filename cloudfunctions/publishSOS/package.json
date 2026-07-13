@@ -1,0 +1,9 @@
+{
+  "name": "publishSOS",
+  "version": "1.0.0",
+  "description": "发布求救信号",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

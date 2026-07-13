@@ -1,0 +1,10 @@
+{
+  "name": "syncTyphoon",
+  "version": "1.0.0",
+  "description": "定时拉取外部台风数据并写入云数据库",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest",
+    "axios": "^1.7.0"
+  }
+}

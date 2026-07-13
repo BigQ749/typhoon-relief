@@ -1,0 +1,9 @@
+{
+  "name": "updateSOS",
+  "version": "1.0.0",
+  "description": "更新求救信号状态（接单/解决）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

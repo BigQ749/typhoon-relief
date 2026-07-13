@@ -1,0 +1,180 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: #edf2f7;
+}
+
+.guide-hero {
+  padding: 26px 18px 18px;
+  background: #12304f;
+  color: #fff;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero-kicker {
+  width: fit-content;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: #bfdbfe;
+  font-size: 12px;
+}
+
+.hero-title {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero-desc {
+  color: #dbeafe;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.tip-scroll {
+  white-space: nowrap;
+  background: #12304f;
+  padding: 0 16px 16px;
+}
+
+.tip-chip {
+  display: inline-flex;
+  margin-right: 8px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.12);
+  color: #e0f2fe;
+  font-size: 12px;
+}
+
+.tab-bar {
+  display: flex;
+  gap: 8px;
+  padding: 12px 14px;
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tab-item {
+  flex: 1;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+
+.tab-item.active {
+  background: #1e3a5f;
+}
+
+.tab-label {
+  font-size: 12px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.tab-item.active .tab-label {
+  color: #fff;
+}
+
+.article-scroll {
+  flex: 1;
+  overflow: hidden;
+}
+
+.article-card {
+  position: relative;
+  display: flex;
+  margin: 12px 14px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(15,23,42,.06);
+}
+
+.article-card.featured {
+  margin-top: 16px;
+  box-shadow: 0 8px 22px rgba(15,23,42,.1);
+}
+
+.card-accent {
+  width: 5px;
+  flex-shrink: 0;
+}
+
+.card-body {
+  flex: 1;
+  min-width: 0;
+  padding: 14px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.card-tag,
+.card-level {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.card-level {
+  color: #dc2626;
+}
+
+.card-title {
+  display: block;
+  color: #0f172a;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 7px;
+}
+
+.card-summary {
+  display: block;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.section-title {
+  padding: 4px 16px 0;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.source-note {
+  margin: 16px 16px 32px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #e2e8f0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}

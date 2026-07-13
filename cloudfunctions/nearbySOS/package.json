@@ -1,0 +1,9 @@
+{
+  "name": "nearbySOS",
+  "version": "1.0.0",
+  "description": "查询附近的求救信号",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}
