@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="t d">
+  <title id="t">台风互助</title>
+  <desc id="d">台风救援互助：发布附近 SOS，并提供台风前后的防灾知识。</desc>
+  <defs><clipPath id="c"><rect width="1200" height="400" rx="26"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="1200" height="400" fill="#0a1628"/>
+    <text x="56" y="64" fill="#82a0b9" font-size="16" font-family="Segoe UI, sans-serif">WECHAT MINI PROGRAM  ·  MVP</text>
+    <rect x="56" y="76" width="56" height="6" rx="3" fill="#e24a4a"/>
+    <text x="56" y="160" fill="#d7e6f5" font-size="52" font-weight="700" font-family="Microsoft YaHei, Segoe UI, sans-serif">台风互助</text>
+    <rect x="56" y="178" width="220" height="10" rx="5" fill="#3d7ea6"/>
+    <text x="56" y="230" fill="#d7e6f5" font-size="20" font-family="Microsoft YaHei, sans-serif">附近 SOS，加上防灾科普。</text>
+    <text x="56" y="348" fill="#82a0b9" font-size="14" font-family="Consolas, monospace">SOS  ·  MAP  ·  GUIDES</text>
+  </g>
+</svg>

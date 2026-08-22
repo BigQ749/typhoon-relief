@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./assets/readme/hero.gif" width="100%" alt="台风救援互助：发布附近 SOS，并提供台风前后的防灾知识。">
+</p>
+
 # 台风救援互助小程序
 
 一个基于微信小程序原生开发与微信云开发的台风灾害互助 MVP。
